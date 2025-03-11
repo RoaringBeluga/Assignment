@@ -22,13 +22,24 @@ dependencies {
     implementation("io.github.bonigarcia:webdrivermanager:$webDriverManagerVersion")
 }
 
-tasks.test {
+//tasks.test {
+//    useTestNG {
+//        preserveOrder = true
+//        includeGroups(systemProperties.getOrDefault("tag", "Full").toString())
+//    }
+//}
+
+tasks.withType<Test>().configureEach() {
+    systemProperties["runGroup"] = System.getProperty("runGroup", "Full")
+    systemProperties["excludeGroup"] = System.getProperty("excludeGroup", "NONE")
+}
+
+// Invoke with: ./gradlew :clean :test -DrunGroup=<group to run> -DexcludeGroup=<group to exclude>
+tasks.named<Test>("test") {
     useTestNG {
-        preserveOrder = true
-        includeGroups(systemProperties.getOrDefault("tag", "Full").toString())
+        val options = this as TestNGOptions
+        options.excludeGroups(systemProperties.getOrDefault("excludeGroup", "NONE").toString())
+        options.includeGroups(systemProperties.getOrDefault("runGroup", "Full").toString())
     }
 }
 
-tasks.withType<Test>().configureEach() {
-    systemProperties["tag"] = System.getProperty("tag", "NONE")
-}

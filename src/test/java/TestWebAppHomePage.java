@@ -27,7 +27,7 @@ public class TestWebAppHomePage {
      */
     @Test(
             description = "Error on empty date",
-            dataProvider = "driversInArray", dataProviderClass = DriverProvider.class,
+            dataProvider = "driverProvider", dataProviderClass = DriverProvider.class,
             groups = {"Homepage", "Full"},
             enabled = true
     )
@@ -49,7 +49,7 @@ public class TestWebAppHomePage {
      */
     @Test(
             description = "Invalid date should be rejected",
-            dataProvider = "driversInArray", dataProviderClass = DriverProvider.class,
+            dataProvider = "driverProvider", dataProviderClass = DriverProvider.class,
             groups = {"Homepage", "Full"},
             enabled = true
     )
@@ -69,7 +69,7 @@ public class TestWebAppHomePage {
      */
     @Test(
             description = "Verify date can be entered manually",
-            dataProvider = "driversInArray", dataProviderClass = DriverProvider.class,
+            dataProvider = "driverProvider", dataProviderClass = DriverProvider.class,
             groups = {"Homepage", "Full"},
             enabled = true
     )
@@ -89,7 +89,7 @@ public class TestWebAppHomePage {
      */
     @Test(
             description = "Empty team name is not allowed",
-            dataProvider = "driversInArray", dataProviderClass = DriverProvider.class,
+            dataProvider = "driverProvider", dataProviderClass = DriverProvider.class,
             groups = {"Homepage", "Full"},
             enabled = true
     )
@@ -110,7 +110,7 @@ public class TestWebAppHomePage {
      */
     @Test(
             description = "Verify favorite team field activation",
-            dataProvider = "driversInArray", dataProviderClass = DriverProvider.class,
+            dataProvider = "driverProvider", dataProviderClass = DriverProvider.class,
             groups = {"Homepage", "Full"},
             enabled = true
     )
@@ -134,7 +134,7 @@ public class TestWebAppHomePage {
      */
     @Test(
             description = "Player name activates on team selection",
-            dataProvider = "driversInArray", dataProviderClass = DriverProvider.class,
+            dataProvider = "driverProvider", dataProviderClass = DriverProvider.class,
             groups = {"Homepage", "Full"},
             enabled = true
     )
@@ -155,7 +155,7 @@ public class TestWebAppHomePage {
      */
     @Test(
             description = "Verify player name can not be empty",
-            dataProvider = "driversInArray", dataProviderClass = DriverProvider.class,
+            dataProvider = "driverProvider", dataProviderClass = DriverProvider.class,
             groups = {"Homepage", "Full"},
             enabled = true
     )
@@ -178,7 +178,7 @@ public class TestWebAppHomePage {
      */
     @Test(
             description = "Verify the form can be submitted",
-            dataProvider = "driversInArray", dataProviderClass = DriverProvider.class,
+            dataProvider = "driverProvider", dataProviderClass = DriverProvider.class,
             groups = {"Homepage", "Full"},
             enabled = true
     )

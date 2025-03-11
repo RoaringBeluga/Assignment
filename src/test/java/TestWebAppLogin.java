@@ -19,7 +19,7 @@ public class TestWebAppLogin {
      */
     @Test(
             description = "No credentials provided",
-            dataProvider = "driversInArray", dataProviderClass = DriverProvider.class,
+            dataProvider = "driverProvider", dataProviderClass = DriverProvider.class,
             groups = {"Login", "Full"},
             enabled = true
     )
@@ -39,7 +39,7 @@ public class TestWebAppLogin {
      */
     @Test(
             description = "Wrong username, no password",
-            dataProvider = "driversInArray", dataProviderClass = DriverProvider.class,
+            dataProvider = "driverProvider", dataProviderClass = DriverProvider.class,
             groups = {"Login", "Full"},
             enabled = true
     )
@@ -57,7 +57,7 @@ public class TestWebAppLogin {
      */
     @Test(
             description = "Correct username, wrong password",
-            dataProvider = "driversInArray", dataProviderClass = DriverProvider.class,
+            dataProvider = "driverProvider", dataProviderClass = DriverProvider.class,
             groups = {"Login", "Full"},
             enabled = true
     )
@@ -77,7 +77,7 @@ public class TestWebAppLogin {
      */
     @Test(
             description = "Correct username, wrong password",
-            dataProvider = "driversInArray", dataProviderClass = DriverProvider.class,
+            dataProvider = "driverProvider", dataProviderClass = DriverProvider.class,
             groups = {"Login", "Full"},
             enabled = true
     )
@@ -100,7 +100,7 @@ public class TestWebAppLogin {
      */
     @Test(
             description = "Blank password not allowed",
-            dataProvider = "driversInArray", dataProviderClass = DriverProvider.class,
+            dataProvider = "driverProvider", dataProviderClass = DriverProvider.class,
             groups = {"Login", "Full"},
             enabled = true
     )
@@ -119,7 +119,7 @@ public class TestWebAppLogin {
      */
     @Test(
             description = "Blank username not allowed",
-            dataProvider = "driversInArray", dataProviderClass = DriverProvider.class,
+            dataProvider = "driverProvider", dataProviderClass = DriverProvider.class,
             groups = {"Login", "Full"},
             enabled = true
     )
@@ -137,7 +137,7 @@ public class TestWebAppLogin {
      */
     @Test(
             description = "Valid credentials should allow logging in",
-            dataProvider = "driversInArray", dataProviderClass = DriverProvider.class,
+            dataProvider = "driverProvider", dataProviderClass = DriverProvider.class,
             groups = {"Login", "Full"},
             enabled = true
     )
