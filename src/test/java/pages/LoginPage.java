@@ -9,11 +9,14 @@ public class LoginPage extends WebPage {
     private final By usernameError = By.id("usernameError");
     private final By passwordError = By.id("passwordError");
     private final By loginError = By.id("loginError");
-    private final By clearButton = By.xpath("//button[text()='Clear'");
+    private final By clearButton = By.xpath("//button[text()='Clear']");
     private final By loginButton = By.xpath("//button[text()='Login']");
+    private final By loginForm = By.id("loginContainer");
+    private final By homePage = By.id("homeContainer");
 
     public LoginPage(WebDriver driver) {
         super(driver);
+        this.driver.get(Constants.pageUrl);
     }
 
     public LoginPage fillUsername(String username) {
@@ -24,10 +27,6 @@ public class LoginPage extends WebPage {
         return this;
     }
 
-    public boolean usernameErrorVisible() {
-        return find(loginField).isDisplayed();
-    }
-
     public LoginPage fillPassword(String password) {
         var passInput = find(passwordField);
         passInput.clear();
@@ -36,12 +35,34 @@ public class LoginPage extends WebPage {
         return this;
     }
 
+    public LoginPage clearLogin() {
+        find(loginField).clear();
+        return this;
+    }
+
+    public LoginPage clearPassword() {
+        find(passwordField).clear();
+        return this;
+    }
+
     public boolean passwordErrorVisible() {
-        return find(passwordError).isDisplayed();
+        return driver.findElement(passwordError).isDisplayed();
+    }
+
+    public boolean usernameErrorVisible() {
+        return driver.findElement(usernameError).isDisplayed();
     }
 
     public boolean loginErrorVisible() {
-        return find(loginError).isDisplayed();
+        return driver.findElement(loginError).isDisplayed();
+    }
+
+    public boolean loginIsEmpty() {
+        return find(loginField).getText().isBlank();
+    }
+
+    public boolean passwordIsEmpty() {
+        return find(passwordField).getText().isBlank();
     }
 
     public LoginPage clearForm() {
@@ -54,4 +75,15 @@ public class LoginPage extends WebPage {
         return this;
     }
 
+    public LoginPage login(String username, String password) {
+        this
+                .fillPassword(password)
+                .fillUsername(username)
+                .submitForm();
+        return this;
+    }
+
+    public boolean loginIsSuccessfull() {
+        return !driver.findElement(loginForm).isDisplayed() && driver.findElement(homePage).isDisplayed();
+    }
 }

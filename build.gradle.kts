@@ -23,5 +23,12 @@ dependencies {
 }
 
 tasks.test {
-    useTestNG()
+    useTestNG {
+        preserveOrder = true
+        includeGroups(systemProperties.getOrDefault("tag", "Full").toString())
+    }
+}
+
+tasks.withType<Test>().configureEach() {
+    systemProperties["tag"] = System.getProperty("tag", "NONE")
 }
