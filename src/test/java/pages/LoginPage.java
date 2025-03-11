@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import util.Constants;
 
 public class LoginPage extends WebPage {
     private final By loginField = By.id("username");
